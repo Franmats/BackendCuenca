@@ -1,0 +1,38 @@
+<h2>Comerce</h2>
+
+    <div class="container">
+         {{#each docs}}
+         <div class="card">
+            <div class="image">
+                <img src={{this.imagen}} alt="imagen">
+            </div>
+            <div class="title">{{this.nombre}}</div>
+            <div class="card2">
+                <b><div class="normal">${{this.precio}}</div></b>
+                <button class="add"> AÑADIR AL CARRITO</button>
+                <div class="normal">Stock:{{this.stock}}</div> 
+                <div class="normal">{{this.idCategoria}}</div>      
+            </div>
+            
+         </div>   
+        {{/each}}
+    </div>
+     <div>
+        {{#if hasPrevPage }}
+            <a href="{{prevLink}}">Anterior</a>
+        {{/if}}
+        {{#if hasNextPage}}
+            <a href="{{nextLink}}">Siguiente</a>  
+        {{/if}}      
+     </div>
+
+     <div>
+        <div>TotalPages:{{totalDocs}}</div>
+        <div>PrevPage:{{prevPage}}</div>
+        <div>NextPage:{{nextPage}}</div>
+        <div>Page:{{page}}</div>
+        <div>hasPrevPage:{{hasPrevPage}}</div>
+        <div>hasNextPage:{{hasNextPage}}</div>
+        <div>PrevLink :{{prevLink}} </div>
+        <div>NextLink :{{nextLink}} </div>
+     </div>
