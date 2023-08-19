@@ -21,7 +21,7 @@ function auth(req,res,next) {
     res.redirect("/")
 }
 router.get("/profile", auth ,(req,res) => {
-    const user = req.session.user
+/*     const user = req.session.user
     const admin = {
         user,
         roll: admin
@@ -29,7 +29,27 @@ router.get("/profile", auth ,(req,res) => {
     if ((user.email == "adminCoder@coder.com") && (user.password == "adminCod3r123")){
         res.render("profile",admin)
     }
-    res.render("profile",user)
+    res.render("profile",user) */
+    const user = req.session.user
+    if ((user.email == "adminCoder@coder.com") && (user.password == "adminCod3r123")){
+        user.roll="admin"
+        res.render("profile",user)
+    } else {
+        user.roll="usuario"
+        res.render("profile",user)
+    }
+ 
 })
+
+router.get('/logout', (req, res) => {
+    req.session.destroy(error => {
+      if (error) {
+        console.error('Error al cerrar sesión:', err)
+      } else {
+        console.log("Sesion cerrada")
+        res.redirect('/')
+      }
+    })
+  })
 
 export default router

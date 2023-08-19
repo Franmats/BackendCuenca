@@ -6,7 +6,7 @@ router.post("/login", async (req,res)=> {
     const {email,password} = req.body
 
     const user = await UserModel.findOne({email,password})
-    if(!user) return res.redirect("login")
+    if(!user) return res.render("login")
 
     req.session.user = user
 
@@ -20,5 +20,15 @@ router.post("/register", async (req,res)=> {
 
     return res.redirect("/")
 })
+
+router.get('/logout', (req, res) => {
+    req.session.destroy(error => {
+      if (error) {
+        console.error('Error al cerrar sesión:', err)
+      } else {
+        res.redirect('/')
+      }
+    })
+  })
 
 export default router
