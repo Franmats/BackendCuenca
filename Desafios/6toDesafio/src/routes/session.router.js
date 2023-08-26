@@ -40,9 +40,7 @@ import passport from "passport";
 
 
 const router = Router()
-router.get("/", (req,res)=> {
-    res.render("home",{})
-})
+
 
 //URL para render
 router.get("/login", (req, res)=> {
@@ -116,7 +114,7 @@ router.get("/githubcallback",passport.authenticate("github", {failureRedirect:"/
         console.log("Callback: ",req.user)
         req.session.user = req.user
         console.log(req.session)
-        res.redirect("/profile")
+        res.redirect("/api/session/profile")
     }
 )
 export default router

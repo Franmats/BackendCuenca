@@ -70,7 +70,7 @@ app.use(session({
             useNewUrlParser:true,
             useUnifiedTopology:true
         },
-        ttl:15
+        ttl:205
     }),
     secret:"secret",
     resave:true,
@@ -81,13 +81,13 @@ app.use(session({
 
 //Rutas
 app.use("/api/products",routerProducts)
-app.use("/api/carts",viewsRouter)
+app.use("/api/carts",routerCart)
 //Login
 /* app.use("/api/session", sessionRouter)
 app.use("/",viewsRouter) */
 
 //Login con github
-app.use("/", sessionRouter)
+app.use("/", viewsRouter)
 app.use("/api/session", sessionRouter)
 
 //Config de passport

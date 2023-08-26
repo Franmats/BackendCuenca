@@ -5,21 +5,15 @@ import GitHubStrategy from "passport-github2"
 import { createHash, isValidPassword } from "../utils.js";
 
 
-/* App ID: 377920
-
-Client ID: Iv1.33ef319f8e3a5e72 */
-
-
 const LocalStrategy = local.Strategy
 
 const initializePassport = () => {
     passport.use("github", new GitHubStrategy({
         clientID:"Iv1.16aeb94733f59b12",
         clientSecret:"c7dd33998ef19c5c0c8daba8b7d94da454e7e1a1",
-        callbackURL:"http://127.0.0.1:8080/githubcallback"
+        callbackURL:"http://127.0.0.1:8080/api/session/githubcallback"
     },
     async (accessToken, refreshToken, profile,done) => {
-        console.log("aaaa",profile)
 
         try{
             const user = await userModel.findOne({email:profile._json.email})
