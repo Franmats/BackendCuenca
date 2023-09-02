@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+
+h2 {
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.container {
+    margin-right: 100px;
+    margin-left: 100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    justify-content: center;
+    gap: 1rem;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.container .card {
+    display: flex;
+    flex-direction: column;
+   text-align: center;
+}
+
+.card2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+}
