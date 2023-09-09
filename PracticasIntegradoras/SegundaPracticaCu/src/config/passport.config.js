@@ -3,6 +3,7 @@ import local from "passport-local"
 import userModel from "../DAO/mongoManager/models/user.model.js"
 import GitHubStrategy from "passport-github2"
 import { createHash, isValidPassword } from "../utils.js";
+import CartModel from "../DAO/mongoManager/models/cart.model.js";
 
 
 const LocalStrategy = local.Strategy
@@ -21,10 +22,21 @@ const initializePassport = () => {
                 console.log("user already existe")
                 return done(null,user)
             }
-
+            const carrito = async()=> {
+                if(!user){
+                    const a = await CartModel.create({products:[]})
+                    const id =a._id.toHexString()
+                    console.log(id);
+                    return id
+                }
+                
+            }
+            
             const newUser = {
                 first_name:profile._json.name,
                 email:profile._json.email,
+                role:"usuario",
+                cart:await carrito(),
                 password:""
             }
 
@@ -44,25 +56,47 @@ const initializePassport = () => {
             usernameField:"email"
         },
         async(req,username,password,done) => {
-            const {first_name,last_name,age,role,cart,email} = req.body
+            let {first_name,last_name,age,role,cart,email} = req.body
             try{
                 const user = await userModel.find({email:username})
                 if (!user){
                     console.log("User already exist")
+
                     return done(null, false)
+                }
+
+
+                const carrito = async()=> {
+                    if(user){
+                        const a = await CartModel.create({products:[]})
+                        const id =a._id.toHexString()
+                        console.log(id);
+                        return id
+                    }
+                    
+                }
+                const tipo = ()=> {
+                    if ((email == "adminCoder@coder.com") && (password == "adminCod3r123")){
+                        role="admin"
+                        return role
+                    } else {
+                        role="usuario"
+                        return role
+                    }
                 }
 
                 const newUser = {
                     first_name,
                     last_name,
-                    role,
-                    cart,
+                    role: tipo(),
+                    cart:await carrito(),
                     age,
                     email,
                     password:createHash(password)
                 }
+                console.log(newUser);
                 const result = await userModel.create(newUser)
-                return done(null,result)
+                return done(null, result)
             }catch(e){
                 return done("error to register " + e)
             }
