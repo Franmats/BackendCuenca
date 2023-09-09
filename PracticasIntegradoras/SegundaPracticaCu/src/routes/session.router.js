@@ -25,13 +25,6 @@ router.post("/login",passport.authenticate("login","/login"), async (req, res) =
 router.post("/register", passport.authenticate("register", {
     failureRedirect:"/register"
 }),async (req, res) => {
-    /* const data = req.body 
-    data.password = createHash(data.password)//hasheamos
-
-    const result = await userModel.create(data)
-    console.log(result); */
-
-
 
     res.redirect("/login")
 

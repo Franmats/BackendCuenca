@@ -1,5 +1,4 @@
 import { Router } from "express";
-import UserModel from "../DAO/mongoManager/models/user.model.js";
 
 const router = Router()
 router.get("/", (req,res)=> {
@@ -26,29 +25,14 @@ function auth(req,res,next) {
     res.redirect("/")
 }
 router.get("/profile", auth ,(req,res) => {
-/*     const user = req.session.user
-
-    const admin = {
-        user,
-        roll: admin
-    }
-    if ((user.email == "adminCoder@coder.com") && (user.password == "adminCod3r123")){
-        res.render("profile",admin)
-    }
-    res.render("profile",user) */
     const user = req.session.user
-    if ((user.email == "adminCoder@coder.com") && (user.password == "adminCod3r123")){
-        user.roll="admin"
-        res.render("profile",user)
-    } else {
-        user.roll="usuario"
-        res.render("profile",user)
-    }
+    console.log(user);
+    res.render("current",user)
  
 })
 //Current
 
-router.get("/current", (req,res)=> {
+router.get("/current",auth, (req,res)=> {
     const user = req.session.user
     console.log(user);
     res.render("current",user)
