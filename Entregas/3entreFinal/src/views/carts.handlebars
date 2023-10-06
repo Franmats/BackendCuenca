@@ -1,0 +1,78 @@
+
+
+{{!-- <div>
+    <div>Carrito N°</div>
+    
+        
+        <h2>{{this._id}}</h2>
+        <div><b>Productos</b>{{this.products}}</div>
+
+    
+</div> --}}
+
+<div class="center">
+    <div class="cart">
+        <h2>Mi Carrito</h2>
+        <div class="checkout-container">
+            <div class="detail-card">
+                <table>
+                    <tbody>
+                        {{#each result }}
+                        <!--  -->
+                        <tr class="product-item">
+                            <td class="product-imagen"><img src={{this.imagen}} ></td>
+                            <td class="product-title"><b>{{this.nombre}}</b></td>
+                            <td class="quantity">
+                                <a class="item-quantity-change-decrement"><button  class="material-symbols-outlined">
+                                    add
+                                </button></a>
+                                <input type="tel" min="1">
+                                <a class="item-quantity-change-decrement"><button  class="material-symbols-outlined">
+                                    remove
+                                </button></a>
+                            </td>
+                            <td class="product-price"><b>{{this.precio}}</b></td>
+                            <td class="item-remove"><a href="item-link-remove">Eliminar</a></td>
+                        </tr>
+                        {{/each}}
+                        <!--  -->
+                    </tbody>
+                </table>
+
+            </div>
+
+            <div class="summary-card">
+                <div class="summary-discounts">
+                    <div class="text4">Tienes un codigo de descuento</div>
+                    <span>
+                        <input type="text" name="" id="">
+                        <button type="submit">APLICAR</button>
+                    </span>
+                </div>
+
+                <div class="summary-total">
+                    <div class="summary-description">
+                        <div>TOTAL</div>
+                        <div>$150000</div>
+                        <div>SUBTOTAL</div>
+                        <div>$150000</div>
+                    </div>
+                    <div class="summary-action">
+                        <form action="">
+                            <button type="submit">FINALIZAR COMPRANDO</button>
+                            <button type="submit">CONTINUAR COMPRANDO</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+        
+
+    </div>
+    </div>
+
+
+
