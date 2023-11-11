@@ -1,0 +1,72 @@
+
+element.style {
+}
+.checkout-container {
+    background-color: #fff;
+}
+@media (max-width: 767px)
+.row-fluid {
+    width: 100%;
+}
+
+.row-fluid {
+    width: 100%;
+    *zoom: 1;
+}
+* {
+    box-sizing: border-box;
+}
+hoja de estilo del usuario-agente
+div {
+    display: block;
+}
+body {
+    overflow-x: hidden;
+    font-family: 'Work Sans',sans-serif;
+    font-weight: 400;
+    background-color: #f8f8f8;
+}
+body, html {
+    height: 100%;
+    min-height: 100%;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+}
+body {
+    margin: 0;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    color: #333;
+    background-color: #fff;
+}
+:root {
+    font-size: 12px;
+}
+html {
+    font-family: 'Work Sans',sans-serif;
+}
+html {
+    line-height: 1.15;
+    -ms-text-size-adjust: 100%;
+}
+html {
+    font-size: 100%;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+.row-fluid:before, .row-fluid:after {
+    display: table;
+    line-height: 0;
+    content: "";
+}
+.row-fluid:after {
+    clear: both;
+}
+.row-fluid:before, .row-fluid:after {
+    display: table;
+    line-height: 0;
+    content: "";
+}

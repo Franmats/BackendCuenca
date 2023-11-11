@@ -1,0 +1,26 @@
+.cart {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cart .checkout-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.cart .checkout-container .detail-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.cart .checkout-container .detail-card table tbody tr td img {
+    width: 100px;
+    height: 100px;
+}
+
+.center {
+    justify-content: center;
+    margin-left: 300px;
+    margin-right: 300px;
+}

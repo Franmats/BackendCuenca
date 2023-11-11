@@ -1,0 +1,103 @@
+
+    <div class="center">
+        <header>
+            <div class="containerfull">
+                <div class="top">
+                    <div class="logo"><h1>SHOP-1</h1><!-- <img src="" alt="logo"> --></div>
+                    <div class="navegate">
+                            <span><a href="">AURICULARES /</a></span>
+                            <span><a href="">AUDIO /</a></span>
+                            <span><a href="">DECORACION /</a></span>
+                            <span><a href="">GRAFICA</a></span>
+                    </div>
+                    <div class="items">
+                        <div class="search"><img src="/static/css/search.png" alt="search"></div>
+                        <div class="user"><img src="/static/css/user.png" alt="user"></div>
+                        <div class="cart"><img src="/static/css/cart.png" alt="cart"></div> 
+                    </div>
+    
+                </div>
+
+                <div class="buttom">
+                    <div class="promotions">
+                        <div class="banner"><b>10% DESCUENTO EN COMPRAS MAYORES A $40000 </b></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="containerphone">
+                <div class="top">
+                    <div class="logo"><h2>SHOP-1</h2>{{!-- <img src="" alt="logo"> --}}</div>
+                    <div class="items">
+                        <div class="search"><img src="/static/css/search.png" alt="search"></div>
+                        <div class="user"><img src="/static/css/user.png" alt="user"></div>
+                        <div class="cart"><img src="/static/css/cart.png" alt="cart"></div>
+                        <div><img src="/static/css/menu.png" alt="Menú" class="menu-image"> </div>
+                                        <div class="menu-toggle">
+                                            <div class="bar">AAAAAAAAA</div>
+                                            <div class="bar">AAAAAAAA</div>
+                                            <div class="bar">AAAAAAAAA</div>
+                                            </div>
+                                            <div class="menu">
+                                                <ul>
+                                                <li><a href="#">Inicio</a></li>
+                                                <li><a href="#">Acerca de</a></li>
+                                                <li><a href="#">Servicios</a></li>
+                                                <li><a href="#">Contacto</a></li>
+                                                </ul>
+                                            </div>
+                                        
+     
+                    </div>
+    
+                </div>
+
+                <div class="buttom">
+            <b>10% DESCUENTO EN COMPRAS MAYORES A $40000 </b>
+                    
+                </div>
+            </div>
+        </header>
+    </div>
+    <div class="container">
+         {{#each docs}}
+         <div class="card">
+            <div class="card1">
+            <div class="image">
+                <img src={{this.imagen}} alt="imagen">
+            </div>
+            
+            <div class="title">{{this.nombre}}</div>
+            </div>
+            <div class="card2">
+                <b><div class="normal">${{this.precio}}</div></b>
+                <button class="add" ><a href="/api/products/{{this.id}}"> VER PRODUCTO</a></button>
+                <div class="normal">Stock:{{this.stock}}</div> 
+                <div class="normal">Categoria:{{this.idCategoria}}</div>      
+            </div>
+            
+         </div>   
+        {{/each}}
+    </div>
+<div class="pagination">
+    {{#if hasPrevPage }}
+        <a href="{{prevLink}}" class="pagination-link">Anterior</a>
+    {{/if}}
+    
+    {{#if hasNextPage}}
+        <a href="{{nextLink}}" class="pagination-link">Siguiente </a>
+        <div>{{nextPage}}</div>
+    {{/if}}
+</div>
+
+
+{{!--      <div>
+        <div>TotalPages:{{totalDocs}}</div>
+        <div>PrevPage:{{prevPage}}</div>
+        <div>NextPage:{{nextPage}}</div>
+        <div>Page:{{page}}</div>
+        <div>hasPrevPage:{{hasPrevPage}}</div>
+        <div>hasNextPage:{{hasNextPage}}</div>
+        <div>PrevLink :{{prevLink}} </div>
+        <div>NextLink :{{nextLink}} </div>
+     </div> --}}

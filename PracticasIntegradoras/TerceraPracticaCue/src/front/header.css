@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+header .containerfull{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: 'Nunito Sans', sans-serif;
+}
+header .containerphone{
+    display: none;
+}
+
+header .containerfull .top{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    flex-direction: row;
+}
+header .containerfull .top .items{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: right;
+}
+header .containerfull .top div img {
+    height: 50px;
+    width: 50px;
+}
+
+header .containerfull .top .navegate {
+    display: flex;
+    justify-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+}
+header .containerfull .top .navegate span{
+    font-size: 20px;
+    padding-top: 11px;
+    padding-left: 5px;
+    padding-right:5px;
+
+}
+
+header .containerfull .top .navegate span a {
+    text-decoration: none;
+    color: black;
+}
+
+
+
+header .containerfull .buttom {
+    display: flex;
+    justify-content: center;
+    background-color: black;
+    color: white;
+}
+
+.center {
+    justify-content: center;
+    margin-left: 300px;
+    margin-right: 300px;
+}
+
+@media (max-width: 768px) {
+    .center {
+        justify-content: center;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    header .containerfull{
+        display: none;
+    }
+
+    header .containerphone{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-family: 'Nunito Sans', sans-serif;
+    }
+
+    header .containerphone .top{
+        display: grid;
+        grid-template-columns: 2fr 3fr;
+        flex-direction: row;
+    }
+
+
+    header .containerphone .top .items{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1px;
+        justify-content: right;
+    }
+    header .containerphone .top .items div img {
+        height: 40px;
+        width: 40px;
+    }
+    header .containerphone .buttom {
+        display: flex;
+        justify-content: center;
+        background-color: black;
+        color: white;
+    }
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+  }
+  
+  .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin: 3px 0;
+    border-radius: 3px;
+  }
+  
+  .menu {
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    transition: left 0.3s;
+  }
+  
+  .menu ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .menu li {
+    padding: 10px 0;
+  }
+  
+  .menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 20px;
+    display: block;
+  }
+  
+  .menu-toggle.active + .menu {
+    left: 0;}
